@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+      document.addEventListener("DOMContentLoaded", function(){
+         const requestURL = "http://moshkin-denis.ru/ajax/quiz.json";
+      
+         
+         const xhr = new XMLHttpRequest();
+         xhr.open("GET", requestURL);
+         xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+         xhr.send();
+      });
+   </script>
+</body>
+</html>

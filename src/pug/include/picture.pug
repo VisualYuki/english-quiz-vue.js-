@@ -1,0 +1,4 @@
+mixin setPicture(className,folder,name,ext,alt)
+    picture(class=`${className}`)
+        source(srcset=`../img/${folder}/${name}.webp` type="image/webp")
+        img(src=`../min-img/${folder}/${name}.${ext}` alt=`${alt}`)

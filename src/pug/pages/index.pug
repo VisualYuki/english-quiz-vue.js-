@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      title Document
+      link(rel="stylesheet", href="../css/main.min.css")
+      script(src="/js/main.min.js")
+   body
+      .page-wrap
+         #quiz.quiz
+            .quiz__steps-wrap
+               ol.quiz__steps-items
+                  li.quiz__steps-item(v-for="index in questions.length" :class="{'current-step' :index == (currentQuestionIndex + 1)}") {{index}}
+            .quiz__content(v-if="currentQuestionIndex !== questions.length")
+        
+               h1.quiz__content-title Test of english grammer
+               p.quiz__question-text {{ questions[currentQuestionIndex].question }}
+               ol.quiz__question-items()
+                  li.quiz__question-item(v-for="answer in questions[currentQuestionIndex].answers" :class="{'error': !isRightAnswer(currentQuestionIndex, answer), 'success': isRightAnswer(currentQuestionIndex, answer)}")
+                     //:data-right-answer="questions[currentQuestionIndex].rightAnswer" :class="{'success': $(this).find(input:checked).length == 0}"
+                     label.quiz__question-label
+                        input(type="radio" name="quiz")
+                        .quiz__question-checked( @click="selectAnswer")
+                        p.quiz__question-choice(v-text="answer"  @click="selectAnswer")
+               .quiz__btns-wrap
+                  .quiz__btn-next.btn(@click="pressedNextBtn") Next
+            .quiz__end(v-else)
+               p.quiz__end-text Вы ответили правильно на {{correctAnswerCount}} вопрос(-ов)
+               
+               
+               
+
+                  
+
+                        
+
+
+
+
